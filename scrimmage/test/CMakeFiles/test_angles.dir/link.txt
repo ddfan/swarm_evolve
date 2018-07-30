@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/test_angles.dir/test_angles.o  -o test_angles -rdynamic -lgtest -lgmock_main -lscrimmage-common 

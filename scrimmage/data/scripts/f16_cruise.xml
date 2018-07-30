@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSimScript.xsl"?>
+<runscript xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://jsbsim.sf.net/JSBSimScript.xsd"
+    name="C172 cruise at 4K, 100% power">
+  <description>This run is for testing the C172 altitude hold autopilot and cruise performance</description>
+  <use aircraft="f16gtri" initialize="reset-flying"/>
+
+  <run start="0.0" end="100000" dt="0.0083333">
+  
+    <event name="Set Altitude: 4000">
+      <condition>
+        simulation/sim-time-sec  ge  0.0
+      </condition>      
+      <set name="ap/altitude_setpoint" value="4000.0"/>
+    </event>
+    
+     <event name="starter">
+      <notify/>
+      <condition>
+        simulation/sim-time-sec >= 0.25
+      </condition>
+      <set name="propulsion/starter_cmd" value="1"/>
+      <set name="fcs/throttle-cmd-norm[0]" value="0.5" action="FG_RAMP" tc ="2"/>
+      <set name="gear/gear-cmd-norm" value="0"/>
+    </event>
+    <event>
+      <notify/>
+      <condition>
+        propulsion/engine[0]/n2 >= 15
+      </condition>
+      <set name="propulsion/cutoff_cmd" value="0"/>
+      <set name="fcs/throttle-cmd-norm[0]" value="0.5" action="FG_RAMP" tc ="2"/>
+    </event>
+
+    <property value="0"> simulation/notify-time-trigger </property>
+
+
+<!--
+    <event name="Trim">
+      <condition>
+        simulation/sim-time-sec  gt  5.0
+      </condition>
+      <notify>
+        <property>propulsion/engine[0]/thrust-lbs</property>
+      </notify>
+      <set name="simulation/do_simple_trim" value="1"/>  
+    </event>
+  -->
+
+    <event name="1 - Hold heading and altitude">
+      <condition>simulation/sim-time-sec ge 10</condition>
+      <set name="ap/bank_setpoint" value="0.0"/>
+      <set name="ap/bank_hold" value="1"/>
+      <set name="ap/altitude_setpoint" value="4000.0"/>
+      <set name="ap/altitude_hold" value="1"/>
+      <set name="ap/airspeed_setpoint" value="340.0"/>
+      <set name="ap/airspeed_hold" value="1"/>
+      
+      <!--<notify/>-->
+    </event>    
+
+     <event name="Repeating Notify" persistent="true">
+      <description>Output message at .5 second intervals</description>
+      <notify>
+        <property>velocities/vtrue-kts</property>
+        <property>fcs/throttle-cmd-norm[0]</property>
+        <property>fcs/throttle-pos-norm[0]</property>
+        <property>propulsion/engine[0]/n2</property>
+        <property>position/h-agl-ft</property>
+        <property>fcs/elevator-cmd-norm</property>
+        <property>position/long-gc-deg</property>
+        <property>position/lat-gc-deg</property>
+        <property>position/h-sl-meters</property>
+        
+        <property>velocities/vtrue-kts</property>
+        
+        <property>velocities/v-east-fps</property>
+        <property>velocities/v-north-fps</property>
+        <property>velocities/v-down-fps</property>
+
+        <property>attitude/roll-rad</property>
+        <property>attitude/pitch-rad</property>
+        <property>attitude/heading-true-rad</property>
+        
+        <property>velocities/thetadot-rad_sec</property>
+      </notify>
+      <condition> simulation/sim-time-sec >= simulation/notify-time-trigger </condition>
+      <set name="simulation/notify-time-trigger" value="0.5" type="FG_DELTA"/>
+    </event>
+        
+  </run>
+</runscript>

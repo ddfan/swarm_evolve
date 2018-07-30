@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/david/scrimmage/scrimmage/test/test_state.cpp
+gtest/gtest.h
+/home/david/scrimmage/scrimmage/test/gtest/gtest.h
+gmock/gmock.h
+/home/david/scrimmage/scrimmage/test/gmock/gmock.h
+scrimmage/math/State.h
+-
+Eigen/Dense
+-
+cmath
+-
+

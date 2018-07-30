@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/test_quaternion.dir/test_quaternion.o  -o test_quaternion -rdynamic -lgtest -lgmock_main -lscrimmage-common 

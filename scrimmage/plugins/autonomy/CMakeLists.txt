@@ -1,0 +1,37 @@
+#MACRO(SUBDIRLIST result curdir)
+#  FILE(GLOB children RELATIVE ${curdir} ${curdir}/*)
+#  SET(dirlist "")
+#  FOREACH(child ${children})
+#    IF(IS_DIRECTORY ${curdir}/${child})
+#      LIST(APPEND dirlist ${child})
+#    ENDIF()
+#  ENDFOREACH()
+#  SET(${result} ${dirlist})
+#ENDMACRO()
+#
+#SUBDIRLIST(SUBDIRS ${CMAKE_CURRENT_SOURCE_DIR})
+#
+#SET(SUBDIRS "GreedyShooter1")
+#FOREACH(subdir ${SUBDIRS})
+#  ADD_SUBDIRECTORY(${subdir})
+#ENDFOREACH()
+
+## Compiles cleanly:
+add_subdirectory(Boids)
+add_subdirectory(follow)
+add_subdirectory(QuadTest)
+add_subdirectory(Straight)
+#add_subdirectory(waypoint)
+add_subdirectory(AuctionAssign)
+add_subdirectory(MotorSchemas)
+add_subdirectory(Control3D)
+add_subdirectory(LearnedBehavior)
+if (BUILD_ROS_PLUGINS)
+  add_subdirectory(ROSAutonomy)
+endif()
+
+if (ENABLE_PYTHON_BINDINGS)
+    add_subdirectory(PyAutonomy)
+endif()
+
+set(PROJECT_PLUGINS ${PROJECT_PLUGINS} PARENT_SCOPE)

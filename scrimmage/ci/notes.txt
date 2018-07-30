@@ -1,0 +1,10 @@
+https://engineering.riotgames.com/news/jenkins-ephemeral-docker-tutorial
+https://hub.docker.com/r/evarga/jenkins-slave/~/dockerfile/
+https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin
+http://devopscube.com/docker-containers-as-build-slaves-jenkins/
+http://scriptcrunch.com/enable-docker-remote-api/
+https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/
+
+# Enable DOCKER_OPTS
+http://www.virtuallyghetto.com/2014/07/quick-tip-how-to-enable-docker-remote-api.html
+ -> in /etc/default/docker

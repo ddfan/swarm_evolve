@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="http://gtri.gatech.edu"?>
+<params>
+  <flight_time>1.0</flight_time>
+  <air_to_air>1.0</air_to_air>
+  <air_to_ground>1.0</air_to_ground>
+  <enemy_collisions>1.0</enemy_collisions>
+  <friendly_collisions>-1.0</friendly_collisions>
+  <surviving_team>0</surviving_team>
+</params>

@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/test_rtree.dir/test_rtree.o  -o test_rtree -rdynamic -lgtest -lgmock_main -lscrimmage-common 

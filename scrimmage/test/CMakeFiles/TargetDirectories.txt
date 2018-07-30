@@ -1,0 +1,6 @@
+/home/david/scrimmage/scrimmage/test/CMakeFiles/edit_cache.dir
+/home/david/scrimmage/scrimmage/test/CMakeFiles/rebuild_cache.dir
+/home/david/scrimmage/scrimmage/test/CMakeFiles/test_state.dir
+/home/david/scrimmage/scrimmage/test/CMakeFiles/test_rtree.dir
+/home/david/scrimmage/scrimmage/test/CMakeFiles/test_angles.dir
+/home/david/scrimmage/scrimmage/test/CMakeFiles/test_quaternion.dir
