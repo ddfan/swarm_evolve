@@ -1,0 +1,18 @@
+#!/usr/bin/env groovy
+
+node('docker-host') {
+  checkout scm
+
+  def app_env
+  stage "Build"
+  gitlabCommitStatus("build") {
+    app_env = docker.build("localhost:5000/scrimmage-gtri-share:inc-${env.BUILD_NUMBER}", "-f ci/ubuntu16.04-incremental/Dockerfile .")
+  }
+
+  stage "Push Image"
+  gitlabCommitStatus("push image") {
+    docker.withRegistry('http://localhost:5000') {
+      app_env.push('latest')
+    }
+  }
+}

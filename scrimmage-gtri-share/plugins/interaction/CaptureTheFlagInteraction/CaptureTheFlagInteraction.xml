@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="http://gtri.gatech.edu"?>
+<params>
+  <library>CaptureTheFlagInteraction_plugin</library>
+  
+  <base_collision_range>25</base_collision_range>
+
+  <hit_detection>noisy_cone</hit_detection> <!-- cone, noisy_cone, shrinking_cone, or acs -->
+
+  <fire_rate_max>2</fire_rate_max> <!-- Hz, -1 == no max -->
+  <fire_rounds_max>500</fire_rounds_max>
+  
+  <fire_range_max>300</fire_range_max>
+  <fire_FOV_width>15</fire_FOV_width>   <!-- degrees -->
+  <fire_FOV_height>15</fire_FOV_height> <!-- degrees -->
+
+  <enable_cube_effects>false</enable_cube_effects>
+  <offensive_fire_range_max>100</offensive_fire_range_max>
+  <defensive_fire_range_max>100</defensive_fire_range_max>  
+    
+  <show_cubes>false</show_cubes>
+  
+  <blue_defense_cube> <!-- team 1 --> 
+    <point>-120.7694073106437,35.72477797153419,900</point> 
+    <point>-120.7669039512259,35.72383357419038,900</point> 
+    <point>-120.7692516332484,35.71973790091293,900</point>     
+    <point>-120.7717521841056,35.72068269453601,900</point> 
+    <point>-120.7694073106437,35.72477797153419,400</point> 
+    <point>-120.7669039512259,35.72383357419038,400</point> 
+    <point>-120.7692516332484,35.71973790091293,400</point>     
+    <point>-120.7717521841056,35.72068269453601,400</point> 
+  </blue_defense_cube>
+  
+  <red_defense_cube> <!-- team 2 --> 
+    <point>-120.7668930318107,35.72382492037635,900</point>
+    <point>-120.7643915106005,35.7228700609423,900</point>      
+    <point>-120.7667287976182,35.7187827265955,900</point>
+    <point>-120.7692297558924,35.71972985656108,900</point>    
+    <point>-120.7668930318107,35.72382492037635,400</point>
+    <point>-120.7643915106005,35.7228700609423,400</point>      
+    <point>-120.7667287976182,35.7187827265955,400</point>
+    <point>-120.7692297558924,35.71972985656108,400</point>    
+  </red_defense_cube>
+
+  <!-- Gaussian-Based Hit Detection "noisy_cone" -->
+  <fire_width_noise>0.5</fire_width_noise>
+  <fire_height_noise>0.5</fire_height_noise>
+  <fire_effective_range>50.0</fire_effective_range>
+
+  <!-- Shrinking Cone Hit Detection -->
+  <entity_radius>20</entity_radius>
+
+</params>

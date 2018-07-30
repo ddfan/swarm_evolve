@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="http://gtri.gatech.edu"?>
+<params>
+  <library>CaptureTheFlagMetrics_plugin</library>
+
+  <!-- weights for scoring function -->
+  <air_to_air_kill_w>10.0</air_to_air_kill_w>
+  <enemy_base_collision_w>50.0</enemy_base_collision_w>
+  <distance_from_base_w>-0.00001</distance_from_base_w>
+</params>

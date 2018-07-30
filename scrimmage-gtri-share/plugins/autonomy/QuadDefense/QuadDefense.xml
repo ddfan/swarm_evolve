@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="http://gtri.gatech.edu"?>
+<params>
+  <library>QuadDefense_plugin</library>
+  <fire_range_max>100</fire_range_max>
+  <fire_FOV>15</fire_FOV> <!-- degrees -->
+  <fire_2D_mode>false</fire_2D_mode>
+  <x_var>200</x_var>
+  <y_var>200</y_var>
+  <z_var>50</z_var>
+  <avoid_dist>10</avoid_dist>
+
+</params>

@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="http://gtri.gatech.edu"?>
+<runscript xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"           
+           name="SASC Capture the Flag">
+  
+  <run start="0.0" end="100" dt="0.1"
+       time_warp="0"
+       enable_gui="false"
+       network_gui="false" 
+       start_paused="false"/>
+
+
+  <!--<learning_algorithm>evolutionstrategies</learning_algorithm>-->
+  <learning_algorithm>crossentropy</learning_algorithm>
+  <num_samples_per_generation>300</num_samples_per_generation>
+  <num_generations>1000000</num_generations>
+  <param_vector>0.02 5 5 0.9 0.999 1.0e-8 0.999 0 0.2</param_vector>  <!--sigma_es, n_friends, n_enemies, adam(beta1), adam(beta2), adam(epsilon), weight_decay_rate, play against self (t/f) -->
+  <learning_rate>0.01</learning_rate>
+  <load_nn_path>/home/david/scrimmage/swarm-log/2017-07-03_15-58-15/gen844/nn.dat</load_nn_path>
+  <load_nn_path2>/home/david/scrimmage/swarm-log/2017-07-13_10-27-58/gen1286/nn2.dat</load_nn_path2>
+  <start_with_loaded_nn>0</start_with_loaded_nn>
+  <test_every_n_generations>10</test_every_n_generations>
+
+  <stream_port>50051</stream_port>
+  <stream_ip>localhost</stream_ip>
+  
+  <end_condition>time, all_dead</end_condition> <!-- time, one_team, none-->
+  
+  <terrain>mcmillan</terrain>  
+  <grid_spacing>10</grid_spacing>
+  <grid_size>1000</grid_size>
+  <background_color>191 191 191</background_color> <!-- Red Green Blue -->
+  <gui_update_period>10</gui_update_period> <!-- milliseconds -->
+  
+  <plot_tracks>false</plot_tracks>
+  <output_type>all</output_type>
+  <show_plugins>false</show_plugins>
+
+  <metrics order="0">SimpleCollisionMetrics</metrics>
+  <metrics order="1">CaptureTheFlagMetrics</metrics>
+  
+  <log_dir>~/scrimmage/swarm-log</log_dir>
+
+  <latitude_origin>35.721025</latitude_origin>
+  <longitude_origin>-120.767925</longitude_origin>
+  <altitude_origin>300</altitude_origin>
+  <show_origin>false</show_origin>
+  <origin_length>10</origin_length>
+
+  
+  <entity_interaction order="0">GroundCollision</entity_interaction>
+  <entity_interaction order="1">SimpleCollision</entity_interaction>
+  <entity_interaction order="2">CaptureTheFlagInteraction</entity_interaction>
+  
+  <seed>53646</seed>
+  
+  <!-- ========================== TEAM 1 ========================= -->
+  <entity>
+    <team_id>1</team_id>
+    <color>77 77 255</color>
+    <count>50</count>
+    <health>1</health>
+    
+    <variance_x>50</variance_x>
+    <variance_y>1000</variance_y>
+    <variance_z>20</variance_z>
+    
+    <x>-1000</x>
+    <y>0</y>
+    <z>200</z>
+    
+    <heading>0</heading>
+    
+    <controller>SimpleAircraftControllerPID</controller>
+    <motion_model>SimpleAircraft</motion_model>
+    <visual_model>zephyr-blue</visual_model>    
+    <autonomy>CaptureTheFlagLearn</autonomy>
+
+    <base>
+      <latitude>35.721112</latitude>
+      <longitude>-120.770305</longitude>
+      <altitude>300</altitude>  
+      <radius>25</radius>
+    </base>
+
+  </entity>
+
+  <!-- ========================== TEAM 2 ========================= -->
+<!---
+<entity>
+  <team_id>2</team_id>
+  <color>255 0 0</color>
+  <count>50</count>
+  <health>1</health>
+
+  <variance_x>50</variance_x>
+  <variance_y>1000</variance_y>
+  <variance_z>20</variance_z>
+
+  <x>1000</x>
+  <y>0</y>
+  <z>200</z>
+
+  <heading>180</heading>
+
+<controller>SimpleAircraftControllerPID</controller>
+<motion_model>SimpleAircraft</motion_model>
+<visual_model>zephyr-red</visual_model>
+<autonomy>CaptureTheFlagLearn</autonomy>
+
+  <base>
+    <latitude>35.719961</latitude>
+    <longitude>-120.757304</longitude>
+    <altitude>300</altitude>
+    <radius>25</radius>
+  </base>
+
+</entity>
+--->
+
+  <entity>
+    <team_id>2</team_id>
+    <color>255 0 0</color>
+    <count>20</count>
+    <health>1</health>
+
+    <variance_x>100</variance_x>
+    <variance_y>500</variance_y>
+    <variance_z>100</variance_z>
+
+    <x>1000</x>
+    <y>0</y>
+    <z>200</z>
+
+    <heading>180</heading>
+
+    <longitude_variance>1000</longitude_variance>
+    <latitude_variance>1000</latitude_variance>
+    <controller>SimpleQuadrotorControllerLQR</controller>
+    <motion_model>SimpleQuadrotor</motion_model>
+    <visual_model>iris</visual_model>
+    <autonomy>QuadDefense</autonomy>
+
+    <base>
+      <latitude>35.719961</latitude>
+      <longitude>-120.757304</longitude>
+      <altitude>300</altitude>
+      <radius>25</radius>
+    </base>
+
+  </entity>
+
+</runscript>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="http://gtri.gatech.edu"?>
+<params>
+  <library>CaptureTheFlagLearn_plugin</library>
+  <percent_greedy>0.50</percent_greedy>
+  <dist_xy>1000.0</dist_xy>
+  <dive_altitude>100</dive_altitude>
+  <fire_range_max>100</fire_range_max>
+  <fire_FOV>15</fire_FOV> <!-- degrees -->
+  <fire_2D_mode>false</fire_2D_mode>
+  <avoid_dist>10</avoid_dist>
+  <avoid_ground_height>5</avoid_ground_height>
+
+</params>

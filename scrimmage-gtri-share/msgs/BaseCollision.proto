@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.gtri.tactics";
+
+package scrimmage_gtri_share;
+
+message BaseCollision {
+        enum Type {
+             Friendly = 0;
+             Enemy = 1;
+        }
+        Type type = 1;
+        int32 entity_id = 2;
+        int32 base_id = 3;
+}
+
+message DistanceFromBase {
+        int32 entity_id = 1;
+        int32 base_id = 2;
+        double distance = 3;
+}
